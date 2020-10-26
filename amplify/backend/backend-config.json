@@ -1,0 +1,40 @@
+{
+	"function": {
+		"skyTestLayer": {
+			"runtimes": [
+				{
+					"value": "nodejs",
+					"name": "NodeJS",
+					"layerExecutablePath": "nodejs/node_modules",
+					"cloudTemplateValue": "nodejs12.x"
+				}
+			],
+			"layerVersionMap": {
+				"1": {
+					"permissions": [
+						{
+							"type": "private"
+						}
+					]
+				}
+			},
+			"providerPlugin": "awscloudformation",
+			"service": "LambdaLayer",
+			"build": true
+		},
+		"skytestamplify57a87ba3": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "skyTestLayer",
+					"attributes": [
+						"Arn"
+					]
+				}
+			]
+		}
+	}
+}
